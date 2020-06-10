@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Quiz
 {
@@ -6,7 +7,13 @@ namespace Quiz
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //TESTING MULTIPLE CHOICE
+            List<string> options = new List<string> { "Mitch", "Shea", "Victor", "Krombopulous Michael"};
+            MultipleChoice TestQuestion = new MultipleChoice("What is my name?", options, 'a');
+            Console.WriteLine(TestQuestion.ToString());
+            char choice = Console.ReadKey().KeyChar;
+            Console.WriteLine("\n" + TestQuestion.GradeAnswer(choice) + "\n");
+
         }
     }
 }

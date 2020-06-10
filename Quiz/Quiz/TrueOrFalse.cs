@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Quiz
 {
-    class TrueOrFalse
+    public class TrueOrFalse //: Question
     {
     }
 }

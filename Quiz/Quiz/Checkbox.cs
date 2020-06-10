@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Quiz
 {
-    class Checkbox
+    public class Checkbox //: Question
     {
     }
 }
