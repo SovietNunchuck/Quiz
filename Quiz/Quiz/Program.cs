@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 
 namespace Quiz
 {
@@ -10,22 +11,25 @@ namespace Quiz
             List<string> options = new List<string> { "Mitch", "Shea", "Victor", "Krombopulous Michael"};
 
             //TESTING MULTIPLE CHOICE
-            //MultipleChoice TestQuestion = new MultipleChoice("What is my name?", options, 'a');
-            //Console.WriteLine(TestQuestion.ToString());
-            //char choice = Console.ReadKey().KeyChar;
-            //Console.WriteLine("\n" + TestQuestion.GradeAnswer(choice) + "\n");
+            MultipleChoice McTestQuestion = new MultipleChoice("What is my name?", options, 'a');
+            Console.WriteLine(McTestQuestion.ToString());
+            char[] MCchoice = { Console.ReadKey().KeyChar };
+            Console.WriteLine("\n" + McTestQuestion.GradeAnswer(MCchoice) + "\n");
 
             //TESTING CHECKBOX
-            //Checkbox TestQuestion = new Checkbox("Who are my friends? (Choose 2)", options, new char[] { 'b', 'c' });
-            //Console.WriteLine(TestQuestion.ToString() + "\nFirst choice: ");
-            //char choice1 = Console.ReadKey().KeyChar;
-            //Console.WriteLine("\nSecond choice: ");
-            //char choice2 = Console.ReadKey().KeyChar;
-            //char[] choices = { choice1, choice2 };
-            //Console.WriteLine("\n" + TestQuestion.GradeAnswer(choices) + "\n");
+            Checkbox CheckboxTestQuestion = new Checkbox("Who are my friends? (Choose 2)", options, new char[] { 'b', 'c' });
+            Console.WriteLine(CheckboxTestQuestion.ToString() + "\nFirst choice: ");
+            char choice1 = Console.ReadKey().KeyChar;
+            Console.WriteLine("\nSecond choice: ");
+            char choice2 = Console.ReadKey().KeyChar;
+            char[] choices = { choice1, choice2 };
+            Console.WriteLine("\n" + CheckboxTestQuestion.GradeAnswer(choices) + "\n");
 
-            //TESTING TRUEORFALSE
-
+            //TESTING TRUE OR FALSE
+            TrueOrFalse TFTestQuestion = new TrueOrFalse("In reality, I have no friends.", 'a');
+            Console.WriteLine(TFTestQuestion.ToString() + "\n");
+            char[] TFchoice = { Console.ReadKey().KeyChar };
+            Console.WriteLine("\n" + TFTestQuestion.GradeAnswer(TFchoice) + "\n");
 
         }
     }

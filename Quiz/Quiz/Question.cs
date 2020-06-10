@@ -9,6 +9,8 @@ namespace Quiz
     {
         public string QuestionText { get; set; }
         public List<string> PossibleSelections { get; set; } = new List<string>();
+        public char CorrectAnswer { get; set; }
+        public char[] CorrectAnswers { get; set; }
 
         public Question(string questionText, List<string> possibleSelections)
         {
@@ -16,9 +18,24 @@ namespace Quiz
             PossibleSelections = possibleSelections;
         }
 
-        public Question()
-            : this("No question text entered.", new List<string> { "Blank" }) {}
+        public Question(string questionText)
+            : this(questionText, new List<string> { "" }) {}
 
+        public Question()
+            : this("No question text entered.", new List<string> { "" }) {}
+
+
+        public virtual string GradeAnswer(char[] choice)
+        {
+            if (Char.ToLower(choice[0]) == CorrectAnswer)
+            {
+                return "\nCorrect!";
+            }
+            else
+            {
+                return "\nSorry, that is incorrect.";
+            }
+        }
 
         public override string ToString()
         {

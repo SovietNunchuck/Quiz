@@ -6,14 +6,12 @@ namespace Quiz
 {
     public class Checkbox : Question
     {
-        public char[] CorrectAnswers { get; }
-
         public Checkbox(string questionText, List<string> possibleSelections, char[] correctAnswers) : base(questionText, possibleSelections)
         {
             CorrectAnswers = correctAnswers;
         }
 
-        public string GradeAnswer(char[] choices)
+        public override string GradeAnswer(char[] choices)
         {
             Array.Sort(CorrectAnswers);
             Array.Sort(choices);
@@ -29,7 +27,7 @@ namespace Quiz
                 userInput += x;
             }
 
-            if (answerKey == userInput)
+            if (answerKey.ToLower() == userInput.ToLower())
             {
                 return "\nCorrect!";
             }
